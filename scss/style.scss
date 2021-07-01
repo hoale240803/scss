@@ -1,0 +1,179 @@
+// DECLARE GLOBAL VARIABLE
+$primary__color: blue;
+$background__color: #f1f1f1;
+
+
+// IMPORT FILE
+@import 'login';
+// IMPORT NHIỀU FILE
+@import 'register','navbar';
+
+section {
+  background-color: $background__color;
+  h2 {
+    color: $primary__color;
+  }
+}
+
+.title{
+    $background__color__title: #f1f1f1;
+    color: $primary__color;
+}
+
+
+.btn__submit {
+    width: 200px;
+    background-color: red;
+    &:hover {
+        background-color: blue;
+    }
+}
+
+.box {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+}
+.section {
+    @extend .box;
+    padding: 20px;
+}
+
+// mixin k đối số
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  ul {
+      @include reset-list;
+      background-color: #f1f1f1;
+      li {
+          padding: 10px;
+          border: 1px solid #ccc;
+      }
+  }
+
+  // đối số là giá trị
+
+  @mixin center($w) {
+    margin: 0 auto;
+    width: $w;
+}
+.main {
+    @include center(300px);
+    padding: 20px;
+}
+.box {
+    @include center(100px);
+    background-color: #f1f1f1;
+}
+
+// đối số là thuộc tính
+@mixin center($prop, $val) {
+    margin: 0 auto;
+    width: 300px;
+    #{$prop}: $val;
+}
+.main {
+    @include center(color,red);
+    padding: 20px;
+}
+.box {
+    @include center(font-size,24px);
+    background-color: #f1f1f1;
+}
+// function  tính chiều rộng cho column
+
+@function getWidth($item) {
+    @return 100% / $item;
+}
+.two-cols {
+    width: columns(2);
+}
+.three-cols {
+    width: columns(3);
+}
+.four-cols {
+    width: columns(4);
+}
+.five-cols {
+    width: columns(5);
+}
+
+// if và else xác định vị trí
+
+@mixin position($pos,$y,$x) {
+    position: absolute;
+    @if $pos == 'tl' {
+        left: $x;
+        top: $y;
+    }@else if $pos == 'tr' {
+        right: $x;
+        top: $y;
+    }@else if $pos == 'bl' {
+        left: $x;
+        bottom: $y;
+    }@else if $pos == 'br' {
+        right: $x;
+        bottom: $y;
+    }
+}
+#main {
+    position: relative;
+    .box01 {
+        @include position('tl',20px,40px)
+    }
+    .box02 {
+        @include position('bl',50px,30px)
+    }
+}
+
+// for tạo chiều rộng tự đông theo columns
+/*
+The lighten() function increases lightness by a fixed amount, 
+which is often not the desired effect. 
+To make a color a certain percentage lighter than it was before, use scale() instead.
+*/
+$total-cols: 8;
+@function column-width($col) {
+    @return percentage($col/$total-cols);
+}
+@for $i from 1 through $total-cols {
+    .col-#{$i} { width: column-width($i) };
+}
+
+$base-color: #036;
+@for $i from 1 through 3 {
+    ul:nth-child(3n + #{$i}) {
+         background-color: lighten($base-color, $i * 5%);
+    }
+}
+
+// each 1 giá trị
+$sizes: 40px, 50px, 80px;
+@each $size in $sizes {
+  .icon-#{$size} {
+    font-size: $size;
+    height: $size;
+    width: $size;
+  }
+}
+
+// each nhiều giá trị
+
+$val: (normal, bold, 10px), (emphasis, bold, 15px);
+@each $name, $style, $size in $val {
+  .#{$name} {
+      font-weight: $style;
+      font-size: $size;
+   }
+}
+//each giá trị dạng map
+$val: (default: normal,  emphasis: bold);
+@each $name, $style in $val {
+   .#{$name} {
+      font-weight: $style;
+  }
+}

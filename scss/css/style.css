@@ -1,0 +1,147 @@
+.login__box {
+  padding: 20px;
+  line-height: 0;
+  color: gray;
+  background: lightgreen; }
+
+section {
+  background-color: #f1f1f1; }
+  section h2 {
+    color: blue; }
+
+.title {
+  color: blue; }
+
+.btn__submit {
+  width: 200px;
+  background-color: red; }
+  .btn__submit:hover {
+    background-color: blue; }
+
+.box, .section {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc; }
+
+.section {
+  padding: 20px; }
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #f1f1f1; }
+  ul li {
+    padding: 10px;
+    border: 1px solid #ccc; }
+
+.main {
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px; }
+
+.box, .section {
+  margin: 0 auto;
+  width: 100px;
+  background-color: #f1f1f1; }
+
+.main {
+  margin: 0 auto;
+  width: 300px;
+  color: red;
+  padding: 20px; }
+
+.box, .section {
+  margin: 0 auto;
+  width: 300px;
+  font-size: 24px;
+  background-color: #f1f1f1; }
+
+.two-cols {
+  width: columns(2); }
+
+.three-cols {
+  width: columns(3); }
+
+.four-cols {
+  width: columns(4); }
+
+.five-cols {
+  width: columns(5); }
+
+#main {
+  position: relative; }
+  #main .box01 {
+    position: absolute;
+    left: 40px;
+    top: 20px; }
+  #main .box02 {
+    position: absolute;
+    left: 30px;
+    bottom: 50px; }
+
+/*
+The lighten() function increases lightness by a fixed amount, 
+which is often not the desired effect. 
+To make a color a certain percentage lighter than it was before, use scale() instead.
+*/
+.col-1 {
+  width: 12.5%; }
+
+.col-2 {
+  width: 25%; }
+
+.col-3 {
+  width: 37.5%; }
+
+.col-4 {
+  width: 50%; }
+
+.col-5 {
+  width: 62.5%; }
+
+.col-6 {
+  width: 75%; }
+
+.col-7 {
+  width: 87.5%; }
+
+.col-8 {
+  width: 100%; }
+
+ul:nth-child(3n + 1) {
+  background-color: #004080; }
+
+ul:nth-child(3n + 2) {
+  background-color: #004d99; }
+
+ul:nth-child(3n + 3) {
+  background-color: #0059b3; }
+
+.icon-40px {
+  font-size: 40px;
+  height: 40px;
+  width: 40px; }
+
+.icon-50px {
+  font-size: 50px;
+  height: 50px;
+  width: 50px; }
+
+.icon-80px {
+  font-size: 80px;
+  height: 80px;
+  width: 80px; }
+
+.normal {
+  font-weight: bold;
+  font-size: 10px; }
+
+.emphasis {
+  font-weight: bold;
+  font-size: 15px; }
+
+.default {
+  font-weight: normal; }
+
+.emphasis {
+  font-weight: bold; }
